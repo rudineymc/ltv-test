@@ -1,0 +1,26 @@
+@import 'src/styles/colors';
+
+.ltv-search-card {
+  background-color: $color-white;
+  border-radius: 30px;
+  box-shadow: 0 2px 4px 0 rgba($color-black, .50);
+
+  & ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  &__icon {
+    width: 6em;
+    height: 6em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+
+    & img {
+      width: 3em;
+      height: 3em;
+    }
+  }
+}

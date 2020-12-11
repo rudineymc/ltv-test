@@ -1,0 +1,21 @@
+@import 'src/styles/colors';
+@import '~bootstrap/scss/mixins';
+
+.ltv-email-form-lookup {
+  &__error {
+    padding: .5em;
+  }
+
+  &__input::placeholder {
+    letter-spacing: 2px;
+  }
+
+  &__button {
+    box-shadow: 0 3px 0 0 $color-sycamore, inset 0 1px 0 0 $color-white;
+    border-radius: 6px;
+
+    &:hover {
+      background-color: $color-cream-can
+    }
+  }
+}

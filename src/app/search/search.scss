@@ -1,0 +1,33 @@
+@import 'src/styles/global';
+@import 'src/styles/colors';
+
+.ltv-search {
+  &__container {
+    background-color: $color-alabaster;
+  }
+
+  &__loading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include media-breakpoint-up(xs) {
+      padding: 5em 0;
+
+      &-img {
+        width: 8em;
+        height: 8em;
+      }
+    }
+  
+    @include media-breakpoint-up(sm) {
+      padding: 8em 0;
+
+      &-img {
+        width: 15em;
+        height: 15em;
+      }
+    }
+  }
+}

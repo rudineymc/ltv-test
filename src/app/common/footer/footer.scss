@@ -1,0 +1,8 @@
+@import 'src/styles/colors';
+
+.ltv-footer {
+  &__description {
+    color: $color-dusty-gray;
+    font-size: .94em;
+  }
+}

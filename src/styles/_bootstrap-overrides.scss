@@ -1,0 +1,19 @@
+@import 'src/styles/colors';
+
+$font-family-sans-serif: "Helvetica Neue", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif !default;
+$font-family-serif: "Helvetica Neue", Georgia, "Times New Roman", Times, serif !default;
+$font-family-monospace: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-base: "Helvetica Neue", $font-family-sans-serif !default;
+
+$headings-font-family: "Helvetica Neue", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif !default;
+$headings-font-weight: bold !default;
+
+//** Link hover decoration.
+$link-hover-decoration: none !default;
+
+$theme-colors: (
+  "primary": $color-congress-blue,
+  "danger": $color-monza,
+  "warning": $color-saffron,
+  "mercury": $color-mercury,
+);
