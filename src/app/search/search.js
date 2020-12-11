@@ -31,34 +31,6 @@ export default class SearchPage {
         this.searchByEmail();
       }
     });
-    new CardListTemplate($($('.js-search__results').get(0)), [
-      {
-        email: "doesmith@example.com",
-        first_name: "Dow",
-        last_name: "Smith",
-        description: "Lorem Ipsum Dolor",
-        address: "123 Chocolate Ave",
-        phone_numbers: [
-        "2125551234", "2125551235", "2125551236"
-        ],
-        relatives: [
-        "Jane Smith", "Jon Smith"
-        ]
-        },
-        {
-          email: "doesmith@example.com",
-          first_name: "Dow",
-          last_name: "Smith",
-          description: "Lorem Ipsum Dolor",
-          address: "123 Chocolate Ave",
-          phone_numbers: [
-          "2125551234", "2125551235", "2125551236"
-          ],
-          relatives: [
-          "Jane Smith", "Jon Smith"
-          ]
-          }
-    ]);
     this.searchByEmail();
   }
 
@@ -73,7 +45,9 @@ export default class SearchPage {
     this.$loading.show();
     axios.get(`https://ltv-data-api.herokuapp.com/api/v1/records.json?email=${email}`)
       .then((r) => {
+        new CardListTemplate($($('.js-search__results').get(0)), (r && r.data) || []);
       }).catch((e) => {
+        new CardListTemplate($($('.js-search__results').get(0)), []);
       })
       .finally(() => {
         this.$results.show();

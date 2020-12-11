@@ -43,10 +43,12 @@ export default class CardListTemplate {
     const totalResults = this.cardList && this.cardList.length || 0;
     const resultsTitle = totalResults !== 1 ? 'Results' : 'Result';
     this.$container.html(cardsHtml);
+
+    const resultsDescription = totalResults > 0 ? 'Look at the result below to see the details of the person you’re searched for.' : 'Try starting a new search below';
     this.$container.prepend(`
     <div class="text-center">
-      <h1 class="text-primary display-4 font-weight-bold">${totalResults} ${resultsTitle}</h1>
-      <h5 class="font-weight-normal">Look at the result below to see the details of the person you’re searched for.</h5>
+      <h1 class="text-primary display-4 font-weight-bold ${totalResults > 0 ? '' : 'pt-5 mt-5'}">${totalResults} ${resultsTitle}</h1>
+      <h5 class="font-weight-normal ${totalResults > 0 ? '' : 'pb-5 mb-5'}">${resultsDescription}</h5>
     </div>
     `);
   }
