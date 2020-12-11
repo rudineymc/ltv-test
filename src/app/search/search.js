@@ -1,6 +1,5 @@
 import './search.scss';
 import $ from 'jquery';
-import axios from 'axios';
 import NavbarTemplate from '@/app/common/navbar';
 import FooterTemplate from '@/app/common/footer';
 import EmailFormLookupTemplate from '@/app/common/email-form-lookup';
@@ -43,17 +42,22 @@ export default class SearchPage {
     this.$results.hide();
     this.$emailForm.hide();
     this.$loading.show();
-    axios.get(`https://ltv-data-api.herokuapp.com/api/v1/records.json?email=${email}`)
-      .then((r) => {
-        new CardListTemplate($($('.js-search__results').get(0)), (r && r.data) || []);
-      }).catch((e) => {
-        new CardListTemplate($($('.js-search__results').get(0)), []);
-      })
-      .finally(() => {
-        this.$results.show();
-        this.$loading.hide();
-        this.$emailForm.show();
-      });
+
+    $.ajax(`https://cors-anywhere.herokuapp.com/https://ltv-data-api.herokuapp.com/api/v1/records.json?email=${email}`, {
+      method: 'GET',
+      headers: {
+        Origin: 'ltv-data-api.herokuapp.com'
+      }
+    })
+    .done((data) => {
+      new CardListTemplate($($('.js-search__results').get(0)), Array.isArray(data) ? data : [data]);
+    }).fail(e => {
+      new CardListTemplate($($('.js-search__results').get(0)), []);
+    }).always(() => {
+      this.$results.show();
+      this.$loading.hide();
+      this.$emailForm.show();
+    });
   }
 
   /**
