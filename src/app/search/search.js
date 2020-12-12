@@ -14,14 +14,14 @@ export default class SearchPage {
 
   constructor() {
     const $body = $('body');
-    const searchForm = $('.js-email-form').get(0);
+    const $searchForm = $('.js-email-form').eq(0);
     this.$loading = $(`${this.baseClass}__loading`);
     this.$loading.hide();
     this.$results = $(`${this.baseClass}__results`);
     this.$emailForm = $('.js-email-form');
     new NavbarTemplate($body);
     new FooterTemplate($body);
-    new EmailFormLookupTemplate($(searchForm), {
+    new EmailFormLookupTemplate($searchForm, {
       title: 'Can’t Find The Right Person?',
       description: " - Make a new search",
       spanText: 'Try Again',
@@ -50,9 +50,9 @@ export default class SearchPage {
       }
     })
     .done((data) => {
-      new CardListTemplate($($('.js-search__results').get(0)), Array.isArray(data) ? data : [data]);
-    }).fail(e => {
-      new CardListTemplate($($('.js-search__results').get(0)), []);
+      new CardListTemplate($('.js-search__results').eq(0), Array.isArray(data) ? data : [data]);
+    }).fail(() => {
+      new CardListTemplate($('.js-search__results').eq(0), []);
     }).always(() => {
       this.$results.show();
       this.$loading.hide();

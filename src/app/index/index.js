@@ -7,10 +7,10 @@ import './index.scss';
 export default class IndexPage {
   constructor() {
     const $body = $('body');
-    const searchForm = $('.js-email-form').get(0);
+    const $searchForm = $('.js-email-form').eq(0);
     new NavbarTemplate($body);
     new FooterTemplate($body);
-    new EmailFormLookupTemplate($(searchForm), {
+    new EmailFormLookupTemplate($searchForm, {
       title: 'Search Any Email Address',
       description: " - Look up the owner's name, photos and online profiles. See what you find!",
       spanText: 'Start Here',

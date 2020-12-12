@@ -19,15 +19,15 @@ export default class EmailFormLookupTemplate {
     this.onValidSubmit = onSubmit;
     this.onSubmit = this.onSubmit.bind(this);
     this.keyup = this.keyup.bind(this);
-    this.$form = $($parentElement.find(this.mainSelector).get(0));
+    this.$form = $parentElement.find(this.mainSelector).eq(0);
     this.$form.submit(this.onSubmit);
-    this.$errorMessage = $(this.$form.find(`${this.mainSelector}__error`).get(0));
-    this.$input = $(this.$form.find(`${this.mainSelector}__input`).get(0));
+    this.$errorMessage = this.$form.find(`${this.mainSelector}__error`).eq(0);
+    this.$input = this.$form.find(`${this.mainSelector}__input`).eq(0);
     this.$input.keyup(this.keyup);
 
-    this.$title = $(this.$form.find(`${this.mainSelector}__title`).get(0));
-    this.$description = $(this.$form.find(`${this.mainSelector}__description`).get(0));
-    this.$descriptionSpan = $(this.$form.find(`${this.mainSelector}__description-span`).get(0));
+    this.$title = this.$form.find(`${this.mainSelector}__title`).eq(0);
+    this.$description = this.$form.find(`${this.mainSelector}__description`).eq(0);
+    this.$descriptionSpan = this.$form.find(`${this.mainSelector}__description-span`).eq(0);
 
     this.$title.text(title);
     this.$description.append(description);

@@ -57,7 +57,7 @@ export default class EmailFormLookupTemplate {
 
 Then, to select an element in the JS file, make sure to use JQuery Find function using the parent element as base. The reason is that this way you will be sure that it won't collide with the other instances of the same component. For example:
 ```
-this.$form = $parentElement.find('.js-form__input').get(0);
+this.$form = $parentElement.find('.js-form__input').eq(0);
 ```
 
 #### Specific components
@@ -78,3 +78,4 @@ Similar to a component based application, there are components specific for a mo
 * Create a RequestService to encapsulate the axios implementation in a single place (SOLID principles).
 * Improve webpack local routing for nesting routes.
 * Add lintin.
+* Add the global styles in the base class to not import it in every module.
